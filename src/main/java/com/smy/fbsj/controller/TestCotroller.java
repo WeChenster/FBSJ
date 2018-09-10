@@ -39,7 +39,7 @@ public class TestCotroller {
     public String testData() {
         BaseUsers bu=new BaseUsers();
         bu.setNickName("lwt");
-        bu.setUserTel("17759513774");
+        bu.setUserTel("17759********");
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
