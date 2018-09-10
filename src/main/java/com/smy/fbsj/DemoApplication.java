@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @EnableAutoConfiguration
-@MapperScan("com.example.fbsj")//将项目中对应的mapper类的路径加进来就可以了
-@ComponentScan(basePackages = {"com.example.fbsj"})
+@MapperScan("com.smy.fbsj")//将项目中对应的mapper类的路径加进来就可以了
+@ComponentScan(basePackages = {"com.smy.fbsj"})
 public class DemoApplication {
 
 
