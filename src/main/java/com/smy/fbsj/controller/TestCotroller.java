@@ -58,12 +58,12 @@ public class TestCotroller {
         return msg;
     }
 
-    @RequestMapping(value = "/getUsers",method = RequestMethod.GET)
-    public String getAllUsers(){
-        List<BaseUsers> list= base_user.getAllUsers();
-        JSONArray array =JSONArray.fromObject(list);
-        return array.toString();
-    }
+//    @RequestMapping(value = "/getUsers",method = RequestMethod.GET)
+//    public String getAllUsers(){
+//        List<BaseUsers> list= base_user.getAllUsers();
+//        JSONArray array =JSONArray.fromObject(list);
+//        return array.toString();
+//    }
 
 
 }

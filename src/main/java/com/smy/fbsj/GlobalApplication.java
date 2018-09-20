@@ -11,13 +11,13 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @MapperScan("com.smy.fbsj")//将项目中对应的mapper类的路径加进来就可以了
 @ComponentScan(basePackages = {"com.smy.fbsj"})
-public class DemoApplication {
+public class GlobalApplication {
 
 
     public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(DemoApplication.class);
+        Logger logger = LoggerFactory.getLogger(GlobalApplication.class);
         logger.info("============项目启动================");
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(GlobalApplication.class, args);
         logger.info("============启动结束================");
     }
 }
