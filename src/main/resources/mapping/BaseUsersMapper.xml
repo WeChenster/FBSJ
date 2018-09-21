@@ -32,6 +32,14 @@
     from base_users
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="getAllUsers" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from base_users
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     <!--
       WARNING - @mbggenerated
