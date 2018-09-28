@@ -3,7 +3,6 @@ package com.smy.fbsj.mapper;
 
 import com.smy.fbsj.model.BaseUsers;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

@@ -61,7 +61,12 @@ public class GlobalUserAgreeBizImpl implements GlobalUserAgreeBiz {
 
     @Override
     public Long isExistRelation(long user_id, long rec_user) {
-        return user_agree.selectByUserIdAndRecUser(user_id,rec_user);
+        Map<Object,Object> par =new HashMap<>();
+        par.put("user_id",user_id);
+        par.put("rec_user",rec_user);
+
+        UserAgree ua=user_agree.selectByUserIdAndRecUser(par);
+        return ua.getId();
     }
 
     @Override

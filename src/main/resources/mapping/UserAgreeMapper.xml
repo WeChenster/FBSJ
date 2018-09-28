@@ -37,16 +37,23 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
-  <select id="selectByUserIdAndRecUser" resultType="java.lang,Long" parameterType="java.lang,Long" >
-  --通过用户id  和关联用户  查询请求好友记录id
+  <select id="selectByUserIdAndRecUser" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+  <!--通过用户id  和关联用户  查询请求好友记录id-->
     select
-    id
+    <include refid="Base_Column_List" />
     from user_agree
-    where user_id=#{user_id,jdbcType=BIGINT} and src_id=#{rec_user,jdbcType=BIGINT}
+    <where>
+      <if test="user_id!=null">
+        and user_id=#{user_id,jdbcType=BIGINT}
+      </if>
+      <if test="rec_user!=null">
+        and rec_user=#{rec_user,jdbcType=BIGINT}
+      </if>
+    </where>
   </select>
 
   <select id="selectObjectListByUserId" resultMap="BaseResultMap" parameterType="java.util.HashMap">
-  --通过用户id 获取请求好友记录列表
+  <!--通过用户id 获取请求好友记录列表-->
     select
     <include refid="Base_Column_List" />
     from user_agree

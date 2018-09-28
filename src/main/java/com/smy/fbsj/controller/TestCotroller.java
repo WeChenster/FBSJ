@@ -3,12 +3,9 @@ package com.smy.fbsj.controller;
 
 import com.smy.fbsj.mapper.BaseUsersMapper;
 import com.smy.fbsj.model.BaseUsers;
-import com.smy.fbsj.model.UserFriends;
-import com.smy.fbsj.service.PageInfo;
 import com.smy.fbsj.service.global.GlobalBaseUsersBiz;
 import com.smy.fbsj.service.global.GlobalUserFriendsBiz;
 import com.smy.fbsj.service.useroperate.UserRegisterBiz;
-import com.smy.fbsj.service.useroperate.impl.UserRegisterBizImpl;
 import com.zhuoan.dto.Dto;
 import com.zhuoan.util.DateUtils;
 import com.zhuoan.util.ResultDataUtil;
@@ -20,15 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-
-import javax.annotation.Resource;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
-
 /**
  * @Description: java类作用描述
  * @Author: lwt
@@ -39,8 +27,6 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/test")
 public class TestCotroller {
-    @Autowired
-    BaseUsersMapper base_user;
 
     @Autowired
     UserRegisterBiz user_register;

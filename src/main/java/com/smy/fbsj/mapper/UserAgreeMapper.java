@@ -56,10 +56,11 @@ public interface UserAgreeMapper {
 
     /**
       * @Description:  通过用户id  和关联用户  查询请求好友记录id
-      * @Pramers:      传入参数
+      * @Pramers:      user_id
+      * @Pramers:      rec_user
       * @return:       返回类型
      */
-    Long selectByUserIdAndRecUser(long user_id, long rec_user);
+    UserAgree selectByUserIdAndRecUser(Map<Object,Object> par);
 
     /**
       * @Description:  通过用户id 获取请求好友记录列表

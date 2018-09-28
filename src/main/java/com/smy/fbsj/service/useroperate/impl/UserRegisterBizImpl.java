@@ -7,7 +7,7 @@ import com.smy.fbsj.service.useroperate.UserRegisterBiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Primary
+@Transactional
 public class UserRegisterBizImpl implements UserRegisterBiz {
     @Autowired
     BaseUsersMapper base_user;

@@ -34,20 +34,7 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
 
-  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.util.HashMap">
-  --通过用户ID获取 该用户的时间轴列表
-    select
-    <include refid="Base_Column_List" />
-    from user_time_stamp
-    <where>
-      <if test="user_id!=null">
-        and user_id=#{user_id,jdbcType=BIGINT}
-      </if>
-      <if test="id_del!=null">
-        and id_del=#{id_del,jdbcType=INTEGER}
-      </if>
-    </where>
-  </select>
+
 
 
 
@@ -162,10 +149,28 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
+
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    <!--通过用户ID获取 该用户的时间轴列表-->
+    select
+    <include refid="Base_Column_List" />
+    from user_time_stamp
+    <where>
+      <if test="user_id!=null">
+        and user_id=#{user_id,jdbcType=BIGINT}
+      </if>
+      <if test="id_del!=null">
+        and id_del=#{id_del,jdbcType=INTEGER}
+      </if>
+    </where>
+  </select>
+
   <update id="updateIdDelByMsgId" parameterType="java.util.HashMap">
     update user_time_stamp
     set id_del=#{id_del,jdbcType=INTEGER}
-    where udmsg_id=#{udmsg_id,,jdbcType=BIGINT}
+    where udmsg_id=#{udmsg_id,jdbcType=BIGINT}
   </update>
+
 
 </mapper>
