@@ -1,8 +1,11 @@
 package com.smy.fbsj.mapper;
 
+
 import com.smy.fbsj.model.BaseUsers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface BaseUsersMapper {
     /**
@@ -53,5 +56,18 @@ public interface BaseUsersMapper {
      */
     int updateByPrimaryKey(BaseUsers record);
 
-    List<BaseUsers> getAllUsers();
+    /**
+      * @Description:  获取所有用户
+      * @Pramers:      hp.id_del  int  可传参数
+      * @return:       返回类型
+     */
+    List<BaseUsers> getAllUsers(Integer id_del);
+
+    /**
+      * @Description:  根据id或chan_add  获取用户
+      * @Pramers:      可传参数  id_del
+      * @return:       返回类型
+     */
+    BaseUsers getUserById(Map<Object,Object> hp);
+
 }

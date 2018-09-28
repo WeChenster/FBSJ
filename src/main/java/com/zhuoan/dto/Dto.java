@@ -49,7 +49,9 @@ public class Dto {
     public static int ALL_TRUE=1;//全局  是
 	
 	public static int ALL_FALSE=0;//全局   否
-	
+
+	public static int GLOBAL_PAGE_SIZE=10;//全局  页面大小
+
 	public static String PAGEINDEX="";//当前页数
 	
 	public static String SECRET_KEY="zhoan";//全局加密密钥

@@ -1,10 +1,10 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   datasource:
     name: socialmodel
-    url: jdbc:mysql://localhost:3306/socialmodel
+    url: jdbc:mysql://127.0.0.1:3306/socialmodel?useUnicode=true&characterEncoding=utf-8
     username: root
     password:
     # 使用jdbc数据源
@@ -14,5 +14,20 @@ spring:
 ## 该配置节点为独立的节点
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
-  type-aliases-package: com.example.fbsj.model  # 注意：对应实体类的路径
+  type-aliases-package: com.smy.fbsj.model  # 注意：对应实体类的路径
 
+##显示mybatis sql语句
+logging:
+  level:
+    com:
+      smy:
+        fbsj:
+          mapper: debug
+
+
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

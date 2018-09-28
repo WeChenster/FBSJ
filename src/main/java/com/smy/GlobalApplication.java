@@ -1,4 +1,4 @@
-package com.smy.fbsj;
+package com.smy;
 
 
 

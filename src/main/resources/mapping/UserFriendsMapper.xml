@@ -41,6 +41,28 @@
     from user_friends
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="getFriendListByuserId" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    <!--通过用户id获取   好友关系列表    -->
+    select
+    <include refid="Base_Column_List" />
+    from user_friends
+    <where>
+      <if test="user_id!=null">
+        and user_id=#{user_id}
+      </if>
+      <if test="id_del!=null">
+        and id_del=#{id_del}
+      </if>
+    </where>
+  </select>
+
+
+
+
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     <!--
       WARNING - @mbggenerated

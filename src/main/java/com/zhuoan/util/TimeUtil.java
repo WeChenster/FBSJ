@@ -243,7 +243,7 @@ public class TimeUtil {
 	
 	/**
 	 * 获得当前日期是星期几
-	 * @param dt
+	 * @param newKey
 	 * @return
 	 */
 	public static JSONArray transArrayToWeekOfDate(JSONArray array,String key,String newKey)
