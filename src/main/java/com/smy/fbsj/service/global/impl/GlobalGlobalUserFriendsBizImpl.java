@@ -38,20 +38,19 @@ public class GlobalGlobalUserFriendsBizImpl implements GlobalUserFriendsBiz {
 
 
     @Override
-    public JSONObject getUserFriendsByUserId(long user_id, int now_page) {
-//        JSONObject list=new JSONObject();
-        PageHelper.startPage(now_page, Dto.GLOBAL_PAGE_SIZE);
+    public JSONObject getUserFriendsByUserId(long user_id,Integer now_page) {
+
+        if(now_page!=null){
+            PageHelper.startPage(now_page,Dto.GLOBAL_PAGE_SIZE);
+        }
+
         Map<Object,Object> par= new HashMap<>();
         par.put("user_id",user_id);
         par.put("id_del",Dto.ALL_FALSE);
         List<UserFriends> list=user_friend.getFriendListByuserId(par);
-        PageInfo<UserFriends> pageInfo = new PageInfo<>(list);
 
-        JSONArray arr =JSONArray.fromObject(pageInfo.getList());
-        if(arr.size()>0){
-            arr= TimeUtil.transTimestamp(arr,"createTime","yyyy-MM-dd HH:mm:ss");
-        }
-        pageInfo.setList(arr);
+        PageInfo<UserFriends> pageInfo=new PageInfo<>(list);
+
         return JSONObject.fromObject(pageInfo);
     }
 
@@ -64,5 +63,17 @@ public class GlobalGlobalUserFriendsBizImpl implements GlobalUserFriendsBiz {
         }else{
             return new JSONObject();
         }
+    }
+
+    @Override
+    public boolean deleteSingleFriend(long friend_id) {
+        UserFriends userFriends=new UserFriends();
+        userFriends.setId(friend_id);
+        userFriends.setIdDel(Dto.ALL_TRUE);
+        int effo = user_friend.updateByPrimaryKeySelective(userFriends);
+        if(effo > 0)
+            return true;
+        else
+            return false;
     }
 }

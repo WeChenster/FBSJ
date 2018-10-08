@@ -50,6 +50,7 @@
         and rec_user=#{rec_user,jdbcType=BIGINT}
       </if>
     </where>
+    order by id desc
   </select>
 
   <select id="selectObjectListByUserId" resultMap="BaseResultMap" parameterType="java.util.HashMap">
@@ -63,6 +64,9 @@
       </if>
       <if test="id_del!=null">
         and id_del=#{id_del,jdbcType=INTEGER}
+      </if>
+      <if test="rec_user!=null">
+        and rec_user=#{rec_user,jdbcType=BIGINT}
       </if>
     </where>
   </select>
@@ -210,4 +214,7 @@
       memo = #{memo,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+
 </mapper>

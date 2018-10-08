@@ -73,13 +73,13 @@ public class TestCotroller {
 
     //获取该用户的好友
     @RequestMapping(value = "/getUserFriends",method = RequestMethod.POST)
-    public String getUserFriends(@RequestParam("user_id") String user_id,
+    public void getUserFriends(@RequestParam("user_id") String user_id,
                                  @RequestParam(value = "now_page",defaultValue = "1") String now_page ) {
 
-        JSONObject list=user_friendBiz.getUserFriendsByUserId(Long.valueOf(user_id),Integer.valueOf(now_page));
+//        JSONArray list=user_friendBiz.getUserFriendsByUserId(Long.valueOf(user_id));
         // 需要把Page包装成PageInfo对象才能序列化。该插件也默认实现了一个PageInfo
 //        PageInfo<UserFriends> pageInfo = new PageInfo<>(list);
-        return list.toString();
+//        return list.toString();
     }
 
 

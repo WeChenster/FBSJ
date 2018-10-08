@@ -1,6 +1,7 @@
 package com.smy.fbsj.service.global;
 
 import com.smy.fbsj.model.UserFriends;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface GlobalUserFriendsBiz {
       * @Pramers:      传入参数
       * @return:       返回类型
      */
-    public JSONObject getUserFriendsByUserId(long user_id, int now_page);
+    public JSONObject getUserFriendsByUserId(long user_id,Integer now_page);
 
 
     /**
@@ -27,4 +28,11 @@ public interface GlobalUserFriendsBiz {
       * @return:       返回类型
      */
     public JSONObject getUserFriendsById(long ufd_id);
+
+    /**
+      * @Description:  刪除記錄
+      * @Pramers:      传入参数
+      * @return:       返回类型
+     */
+    public boolean deleteSingleFriend(long friend_id);
 }
