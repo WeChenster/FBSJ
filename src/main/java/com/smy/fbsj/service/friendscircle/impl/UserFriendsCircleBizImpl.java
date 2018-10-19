@@ -177,17 +177,17 @@ public class UserFriendsCircleBizImpl implements UserFriendsCircleBiz {
     }
 
     @Override
-    public boolean commentUserDynamicMessage(UserComments userComments) {
+    public Long commentUserDynamicMessage(UserComments userComments) {
         //更新消息表中的评论数
         boolean effo1=user_dyn_msg.updateColumnValue(" comm_num = comm_num + 1 ",userComments.getImg());
 
         //添加评论记录
         Long effo_2=user_comments.insertLines(userComments);
         if(effo1&&effo_2!=null){
-            return true;
+            return effo_2;
         }else{
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
-            return false;
+            return null;
         }
     }
 
@@ -210,17 +210,5 @@ public class UserFriendsCircleBizImpl implements UserFriendsCircleBiz {
         }
     }
 
-    @Override
-    public boolean insertCommentUserDynamicMessage(UserComments userComments) {
-        //判断评论表类型
-        if(userComments.getType()== Dto.USER_COMMENT_TYPE_PRAISE){//点赞
-            boolean praise_result=praiseUserDynamicMessage(userComments);
-            return praise_result;
-        }else if(userComments.getType()== Dto.USER_COMMENT_TYPE_COM){//论评
-            boolean comment_result= commentUserDynamicMessage(userComments);
-            return comment_result;
-        }else{
-            return false;
-        }
-    }
+
 }

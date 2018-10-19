@@ -47,7 +47,7 @@ public interface UserFriendsCircleBiz {
       * @Pramers:      userComments
       * @return:       返回类型
      */
-    public boolean commentUserDynamicMessage(UserComments userComments);
+    public Long commentUserDynamicMessage(UserComments userComments);
 
     /**
       * @Description:  删除动态
@@ -57,11 +57,6 @@ public interface UserFriendsCircleBiz {
     public boolean deleteUserDynamicMessage(long udmsg_id);
 
 
-    /**
-      * @Description:  添加评论，点赞
-      * @Pramers:      userComments
-      * @return:       返回类型
-     */
-    public boolean insertCommentUserDynamicMessage(UserComments userComments);
+
 
 }
