@@ -33,21 +33,21 @@ public class GlobalBaseUsersBizImpl implements GlobalBaseUsersBiz {
 
     @Override
     public JSONObject getUserByIdOrChainAdd(String user_id) {
-        BaseUsers bu=new BaseUsers();
+        JSONObject bu=new JSONObject();
         Map<Object,Object> hp=new HashMap<Object,Object>();
         if(CheckTypeUtil.isNumber(user_id)){
             hp.put("id",user_id);
             hp.put("id_del",Dto.ALL_FALSE);
-            bu=baer_user.getUserById(hp);
+            bu=JSONObject.fromObject(baer_user.getUserById(hp));
         }else{
             hp.put("chan_add",user_id);
             hp.put("id_del",Dto.ALL_FALSE);
-            bu=baer_user.getUserById(hp);
+            bu=JSONObject.fromObject(baer_user.getUserById(hp));
         }
-        if(bu.getId()!=null){
+        if(!bu.isNullObject() && !bu.getString("id").equals("null")){
             return TimeUtil.transTimeStamp(JSONObject.fromObject(bu),"yyyy-MM-dd HH:mm:ss","createTime");
         }else{
-            return new JSONObject();
+            return null;
         }
     }
 

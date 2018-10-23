@@ -72,7 +72,7 @@ public class UserRelationController {
       * @Pramers:      传入参数
       * @return:       返回类型
      */
-    @RequestMapping(value = "/addfriendagree",method = RequestMethod.POST)
+    @RequestMapping(value = "/addfriendagree",method = RequestMethod.POST,produces="text/plain;charset=UTF-8")
     public String addFriendAgree(@RequestParam("chain_add") String chain_add,//用户区块
                                  @RequestParam("rec_chain") String rec_chain,//来源用户区块
                                  @RequestParam("friend_from") String friend_from,//来源类型  0：通讯录  1：查找
@@ -91,6 +91,11 @@ public class UserRelationController {
              JSONObject rec_user =base_user.getUserByIdOrChainAdd(rec_chain);
              if(!user.isNullObject()&&user.containsKey("id")&&!user.getString("id").equals("null")){
                 if(!rec_user.isNullObject()&&rec_user.containsKey("id")&&!rec_user.getString("id").equals("null")){
+                    //判断是否存在 用户user，关联用户rec_user 的申请记录如果有  取出来判断类型   未处理就返回成功
+
+
+
+
                     //组织好友申请对象
                     UserAgree usera=new UserAgree();
                     usera.setUserId(user.getLong("id"));
@@ -109,6 +114,10 @@ public class UserRelationController {
                         obj.put("code", Dto.ALL_FALSE);
                         obj.put("msg", "操作失败");
                     }
+
+
+
+
                 }else{
                     obj.put("code", Dto.ALL_FALSE);
                     obj.put("msg", "来源用户不存在");

@@ -74,12 +74,10 @@ public class UserFriendCircleController {
             userDyn_msg.setMsgId(-1L);
 
             Long insert_msg_id=userFriendCircleBiz.insertUserDynamicMessage(userDyn_msg);
-            if(insert_msg_id!=null){
-                obj.put("code", Dto.ALL_TRUE);
-                obj.put("msg", "操作成功");
+            if(insert_msg_id != null){
+                obj.element("code", Dto.ALL_TRUE).element("msg", "操作成功");
             }else{
-                obj.put("code",Dto.ALL_FALSE);
-                obj.put("msg","操作失败");
+                obj.element("code",Dto.ALL_FALSE).element("msg","操作失败");
             }
         }else{
             obj.put("code", Dto.ALL_FALSE);
